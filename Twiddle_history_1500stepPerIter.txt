@@ -1,0 +1,100 @@
+Kp: 0.07	Ki: 0.007	Kd: 1
+Listening to port 4567
+Connected!!!
+Iteration : 0,	Best error : 0.797665,	Current error : 0.797665
+  Kp = 0.08(0.01),  Ki = 0.007(0.001),  Kd = 1(0.1)
+Iteration : 0,	Best error : 0.797665,	Current error : 0.866334
+  Kp = 0.06(0.01),  Ki = 0.007(0.001),  Kd = 1(0.1)
+Iteration : 0,	Best error : 0.797665,	Current error : 0.799077
+  Kp = 0.07(0.005),  Ki = 0.007(0.001),  Kd = 1(0.1)
+Iteration : 0,	Best error : 0.797665,	Current error : 0.764315
+  Kp = 0.07(0.005),  Ki = 0.008(0.001),  Kd = 1(0.1)
+Iteration : 0,	Best error : 0.791087,	Current error : 0.791087
+  Kp = 0.07(0.005),  Ki = 0.008(0.0013),  Kd = 1(0.1)
+Iteration : 0,	Best error : 0.791087,	Current error : 0.857567
+  Kp = 0.07(0.005),  Ki = 0.008(0.0013),  Kd = 1.1(0.1)
+Iteration : 1,	Best error : 0.751789,	Current error : 0.751789
+  Kp = 0.07(0.005),  Ki = 0.008(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.751789,	Current error : 0.719769
+  Kp = 0.075(0.005),  Ki = 0.008(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.751789,	Current error : 0.799194
+  Kp = 0.065(0.005),  Ki = 0.008(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.706202
+  Kp = 0.065(0.0065),  Ki = 0.008(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.758938
+  Kp = 0.065(0.0065),  Ki = 0.0093(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.838476
+  Kp = 0.065(0.0065),  Ki = 0.0067(0.0013),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.724832
+  Kp = 0.065(0.0065),  Ki = 0.008(0.00065),  Kd = 1.1(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.757301
+  Kp = 0.065(0.0065),  Ki = 0.008(0.00065),  Kd = 1.23(0.13)
+Iteration : 1,	Best error : 0.706202,	Current error : 0.925125
+  Kp = 0.065(0.0065),  Ki = 0.008(0.00065),  Kd = 0.97(0.13)
+Iteration : 2,	Best error : 0.706202,	Current error : 0.744822
+  Kp = 0.065(0.0065),  Ki = 0.008(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.706202,	Current error : 0.744367
+  Kp = 0.0715(0.0065),  Ki = 0.008(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.706202,	Current error : 0.804195
+  Kp = 0.0585(0.0065),  Ki = 0.008(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.70526
+  Kp = 0.0585(0.00845),  Ki = 0.008(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.744875
+  Kp = 0.0585(0.00845),  Ki = 0.00865(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.880178
+  Kp = 0.0585(0.00845),  Ki = 0.00735(0.00065),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.829998
+  Kp = 0.0585(0.00845),  Ki = 0.008(0.000325),  Kd = 1.1(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.749189
+  Kp = 0.0585(0.00845),  Ki = 0.008(0.000325),  Kd = 1.165(0.065)
+Iteration : 2,	Best error : 0.70526,	Current error : 0.816895
+  Kp = 0.0585(0.00845),  Ki = 0.008(0.000325),  Kd = 1.035(0.065)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.83975
+  Kp = 0.0585(0.00845),  Ki = 0.008(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.747799
+  Kp = 0.06695(0.00845),  Ki = 0.008(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.798135
+  Kp = 0.05005(0.00845),  Ki = 0.008(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.898508
+  Kp = 0.0585(0.004225),  Ki = 0.008(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.790371
+  Kp = 0.0585(0.004225),  Ki = 0.008325(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.762609
+  Kp = 0.0585(0.004225),  Ki = 0.007675(0.000325),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.788873
+  Kp = 0.0585(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.1(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.834851
+  Kp = 0.0585(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.1325(0.0325)
+Iteration : 3,	Best error : 0.70526,	Current error : 0.725565
+  Kp = 0.0585(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.0675(0.0325)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.787122
+  Kp = 0.0585(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.819968
+  Kp = 0.062725(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.850714
+  Kp = 0.054275(0.004225),  Ki = 0.008(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.752115
+  Kp = 0.0585(0.0021125),  Ki = 0.008(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.780121
+  Kp = 0.0585(0.0021125),  Ki = 0.0081625(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.887753
+  Kp = 0.0585(0.0021125),  Ki = 0.0078375(0.0001625),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.833062
+  Kp = 0.0585(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.1(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.740352
+  Kp = 0.0585(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.11625(0.01625)
+Iteration : 4,	Best error : 0.70526,	Current error : 0.801552
+  Kp = 0.0585(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.08375(0.01625)
+Iteration : 5,	Best error : 0.70526,	Current error : 0.872712
+  Kp = 0.0585(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.1(0.008125)
+Iteration : 5,	Best error : 0.70526,	Current error : 0.74679
+  Kp = 0.0606125(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.1(0.008125)
+Iteration : 5,	Best error : 0.70526,	Current error : 0.827476
+  Kp = 0.0563875(0.0021125),  Ki = 0.008(8.125e-05),  Kd = 1.1(0.008125)
+Iteration : 5,	Best error : 0.70526,	Current error : 0.862928
+  Kp = 0.0585(0.00105625),  Ki = 0.008(8.125e-05),  Kd = 1.1(0.008125)
+
+Finished! Final values are
+  Kp = 0.0585
+  Ki = 0.008
+  Kd = 1.1

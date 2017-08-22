@@ -41,6 +41,7 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+
 private:
   bool is_init_;
 };

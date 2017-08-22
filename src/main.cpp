@@ -4,6 +4,9 @@
 #include "json.hpp"
 #include "PID.h"
 #include <math.h>
+#include "Twiddle.h"
+#include "SGD.h"
+#include <vector>
 
 // for convenience
 using json = nlohmann::json;
@@ -33,19 +36,28 @@ int main()
 {
   uWS::Hub h;
 
+  // Car controller
   PID pid;
+  // pid.Init(0.07, 0.007, 1); // initial params before twiddle
+  pid.Init(0.0585, 0.008, 1.1); // best params by twiddle
+
+  // Twiddle parameters
+  Twiddle twiddler;
+  bool optimize = false;
+  const int N = 1500;
+  double ControlError[N] = {};
+  std::vector<double> params = {0.07, 0.007, 1};
+  std::vector<double> dp = {0.01, 0.001, 0.1};
+  twiddler.Init(params,dp,0.01);
+
+  // Speed control
   PID speedControl;
-
-  pid.Init(0.06, 0.01, 1);
   speedControl.Init(0.5,0,1);
-
   double setSpeed = 50;
 
-  std::cout << "Kp: " << pid.Kp << "\tKi: " << pid.Ki << "\tKd: " << pid.Kd << std::endl;
-  std::cout << std::setw(10);
   int counter = 0;
 
-  h.onMessage([&pid,&speedControl,&setSpeed,&counter](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
+  h.onMessage([&pid,&speedControl,&setSpeed,&twiddler,&ControlError,&counter,optimize](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
@@ -59,26 +71,24 @@ int main()
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
           double speed = std::stod(j[1]["speed"].get<std::string>());
-          double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+          // double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
 
-          // double ctek1 = cte + sin(angle*M_PI/180.0)*speed/100; // assumes straight road
+          // double ctek1 = cte + sin(deg2rad(angle))*speed/100; // assumes straight road
           pid.UpdateError(cte);
           speedControl.UpdateError(speed - setSpeed);
           steer_value = pid.TotalError();
 
           // DEBUG
-          std::cout << counter << "    "
-                    << std::setw(10) << cte
-                    << std::setw(10) << speed
-                    << std::setw(10) << angle
-                    << std::setw(15) << steer_value
-                    << std::setw(15) << pid.p_error
-                    << std::setw(15) << pid.d_error
-                    << std::setw(15) << pid.i_error
-                    << std::setw(10) << std::endl;
-
-          ++counter;
+          // std::cout << counter << "    "
+          //           << std::setw(10) << cte
+          //           << std::setw(10) << speed
+          //           << std::setw(10) << angle
+          //           << std::setw(15) << steer_value
+          //           << std::setw(15) << pid.p_error
+          //           << std::setw(15) << pid.d_error
+          //           << std::setw(15) << pid.i_error
+          //           << std::setw(10) << std::endl;
 
           if (steer_value > 1) steer_value = 1;
           if (steer_value < -1) steer_value = -1;
@@ -87,6 +97,40 @@ int main()
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = speedControl.TotalError();
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
+
+          if (optimize) {
+            if (speed > 0.9*setSpeed) {
+
+              ControlError[counter] = cte*cte;
+
+              if (counter == N-1) {
+                double tolErr = 0;
+                for (auto ei : ControlError) tolErr += ei;
+                tolErr = sqrt(tolErr/N);
+
+                twiddler.UpdateParams(tolErr);
+                pid.Kp = twiddler.p[0];
+                pid.Ki = twiddler.p[1];
+                pid.Kd = twiddler.p[2];
+
+                if (twiddler.finished) {
+                  std::cout << "\nFinished! Final values are\n"
+                            << "  Kp = " << pid.Kp << std::endl
+                            << "  Ki = " << pid.Ki << std::endl
+                            << "  Kd = " << pid.Kd << std::endl;
+                } else {
+                  std::cout << "Iteration : " << twiddler.IterNum << ",\t"
+                            << "Best error : " << twiddler.best_err << ",\t"
+                            << "Current error : " << tolErr << std::endl;
+                  std::cout << "  Kp = " << pid.Kp << "(" << twiddler.dp[0] << "),"
+                            << "  Ki = " << pid.Ki << "(" << twiddler.dp[1] << "),"
+                            << "  Kd = " << pid.Kd << "(" << twiddler.dp[2] << ")\n";
+                }
+              }
+
+              counter = (counter + 1) % N;
+            }
+          }
           // std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
