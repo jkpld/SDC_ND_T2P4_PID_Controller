@@ -5,7 +5,6 @@
 #include "PID.h"
 #include <math.h>
 #include "Twiddle.h"
-#include "SGD.h"
 #include <vector>
 
 // for convenience
